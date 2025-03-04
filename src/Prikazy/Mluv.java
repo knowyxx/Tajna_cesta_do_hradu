@@ -1,6 +1,7 @@
 package Prikazy;
 
-public class Pomoc implements Prikazy {
+public class Mluv implements Prikazy {
+
     @Override
     public String execute() {
         return "";

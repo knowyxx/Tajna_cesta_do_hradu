@@ -34,7 +34,7 @@ public class SvetovaMapa {
         }
     }
 
-    public Lokace getaktualniLokace(){
+    public Lokace getAktualniLokace(){
         return svet.get(aktualniLokace);
     }
 
