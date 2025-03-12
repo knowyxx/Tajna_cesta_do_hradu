@@ -4,7 +4,11 @@ public class Hrac {
 
     private int zivoty;
     private int utok;
-    private boolean jeZivy;
+    private boolean jeZivy = true;
+
+    public int protivnikUtok(int utok){
+        return zivoty-utok;
+    }
 
     public int getZivoty() {
         return zivoty;
@@ -23,7 +27,10 @@ public class Hrac {
     }
 
     public boolean isJeZivy() {
-        return jeZivy;
+        if (zivoty<=0){
+            return false;
+        }else return jeZivy;
+
     }
 
     public void setJeZivy(boolean jeZivy) {

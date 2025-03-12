@@ -4,7 +4,7 @@ public class Konec implements Prikazy{
 
     @Override
     public String execute() {
-        return "";
+        return "Okay";
     }
 
     @Override

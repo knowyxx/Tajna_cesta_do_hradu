@@ -10,6 +10,7 @@ import java.util.HashMap;
 public class SvetovaMapa {
 
     private HashMap<Integer, Lokace> svet = new HashMap();
+    private HashMap<Integer, Veci> veci = new HashMap<>();
     private int start = 0;
     private int aktualniLokace = start;
 
@@ -25,6 +26,7 @@ public class SvetovaMapa {
                         new int[]{Integer.parseInt(Arrays.toString(Arrays.copyOfRange(split, 2, 6)))}
                 );
                 svet.put(Integer.parseInt(split[0]), lokace);
+                //Veci veci = new Veci()
             }
             return true;
         } catch (FileNotFoundException e) {
@@ -40,5 +42,9 @@ public class SvetovaMapa {
 
     public HashMap<Integer, Lokace> getSvet(){
         return svet;
+    }
+
+    public HashMap<Integer, Veci> getVeci() {
+        return veci;
     }
 }
