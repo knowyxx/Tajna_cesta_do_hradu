@@ -10,6 +10,7 @@ public class Veci {
     private Veci vec;
 
     public Veci() {
+
     }
 
     public Veci(int ID, Veci vec) {
