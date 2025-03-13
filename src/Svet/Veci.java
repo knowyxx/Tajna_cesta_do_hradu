@@ -11,6 +11,8 @@ public class Veci {
 
     public Veci() {
 
+
+
     }
 
     public Veci(int ID, Veci vec) {
