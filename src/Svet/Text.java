@@ -9,7 +9,7 @@ public class Text {
         return null;
     }
 
-    public boolean nacistText(){
-        return false;
+    public static String nacistText(){
+        return null;
     }
 }

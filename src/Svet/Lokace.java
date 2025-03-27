@@ -12,12 +12,12 @@ public class Lokace {
 
     }
 
-    public Lokace(String jmeno, int ID, int[] lokace) {
+    public Lokace(String jmeno, int ID, String[] lokace) {
         this.jmeno = jmeno;
         this.ID = ID;
         this.lokace = new int[4];
         for (int i = 0; i < lokace.length; i++) {
-            this.lokace[i] = Integer.parseInt(toString(lokace[i]));
+            this.lokace[i] = Integer.parseInt((lokace[i]));
         }
     }
 

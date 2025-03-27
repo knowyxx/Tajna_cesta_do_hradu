@@ -1,8 +1,6 @@
 package postavy;
 
-import Svet.Lokace;
 import Svet.SvetovaMapa;
-import Svet.Veci;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -18,7 +16,8 @@ public class Montra {
     private int utok;
     private boolean jeZivy = true;
     private String text;
-    private HashMap<Integer, Montra> monstra = new HashMap();
+    private HashMap<Integer, Montra> monstra;
+
 
 
     public Montra(int ID, String jmeno, int zivoty, int utok, boolean jeZivy, String text) {
@@ -28,32 +27,32 @@ public class Montra {
         this.utok = utok;
         this.jeZivy = jeZivy;
         this.text = text;
+        monstra = new HashMap();
     }
 
     public Montra() {
+        monstra = new HashMap();
     }
 
-    public String voditko(){
-        SvetovaMapa mapa = new SvetovaMapa();
-        return monstra.get(mapa.getAktualniLokace()).text;
-    }
 
-    public String monstraVMistnosti(){
-        SvetovaMapa mapa = new SvetovaMapa();
-        for (int i = 0; i < 7; i++) {
-            if (mapa.getAktualniLokace().getID()==this.ID){
-                return this.jmeno+" "+this.zivoty+" "+this.utok;
+    public boolean monstraVMistnosti(SvetovaMapa mapa){
+        if (monstra.containsKey(mapa.getAktualniLokace().getID())) {
+            if (monstra.get(mapa.getAktualniLokace().getID()).isJeZivy()) {
+                System.out.println("Jmeno: " + monstra.get(mapa.getAktualniLokace().getID()).getJmeno() + "\n" +
+                        "HP: " + monstra.get(mapa.getAktualniLokace().getID()).getZivoty() + "\n" +
+                        "Je zivy");
             }
-            ID++;
+            System.out.println(monstra.get(mapa.getAktualniLokace().getID()).getJmeno() + ", mrtvi: " + monstra.get(mapa.getAktualniLokace().getID()).getText());
+            return true;
         }
-        return "Neni zadny monstrum v mistnosti";
+        return false;
     }
 
     public int protivnikUtok(int utok, int vec){
         return zivoty-utok-vec;
     }
 
-    public String nacteniMonstru(){
+    public boolean nacteniMonstru(){
         try (BufferedReader br = new BufferedReader(new FileReader("monstra.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -68,13 +67,26 @@ public class Montra {
                 );
                 monstra.put(Integer.parseInt(split[0]), montra);
             }
+            return true;
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Montra{" +
+                "ID=" + ID +
+                ", jmeno='" + jmeno + '\'' +
+                ", zivoty=" + zivoty +
+                ", utok=" + utok +
+                ", jeZivy=" + jeZivy +
+                ", text='" + text + '\'' +
+                ", monstra=" + monstra +
+                '}';
     }
 
     public String ulozeniMonstru(){
@@ -138,4 +150,6 @@ public class Montra {
     public void setMonstra(HashMap<Integer, Montra> monstra) {
         this.monstra = monstra;
     }
+
+
 }

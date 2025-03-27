@@ -1,10 +1,13 @@
 package postavy;
 
+import Prikazy.Batoh;
+
 public class Hrac {
 
     private int zivoty;
     private int utok;
     private boolean jeZivy = true;
+    private Batoh batoh = new Batoh();
 
     public int protivnikUtok(int utok){
         return zivoty-utok;
