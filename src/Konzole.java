@@ -49,7 +49,7 @@ public class Konzole {
             if(mapa.get(prikaz).toString().equals("batoh")){
                 svetovaMapa = mapa.get(prikaz).getSvet();
             }
-            if (mapa.get(prikaz).equals("boj")){
+            if (mapa.get(prikaz).toString().equals("boj")){
                 svetovaMapa.setHrac(mapa.get(prikaz).getHrac());
                 montra=mapa.get(prikaz).getMontra();
             }

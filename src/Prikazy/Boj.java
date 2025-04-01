@@ -17,23 +17,24 @@ public class Boj implements Prikazy{
 
     @Override
     public String execute() {
-        //System.out.println("Na koho chcete zautocit?");
+        hrac = mapa.getHrac();
         if (mapa.getMontras().containsKey(mapa.getAktualniLokace().getID())){
-            boj();
+            return boj();
+        }else{
+            return "Zadny monstrum v mistnosti.";
         }
-        return "";
     }
 
     public String boj (){
         hrac = mapa.getHrac();
         montra = mapa.getMontras().get(mapa.getAktualniLokace().getID());
         String viteznik="";
-        System.out.println("Napiste 'utok' abyste zautocili.");
-        while (hrac.getZivoty()<=0 || montra.isJeZivy()){
+        while (hrac.getZivoty()>0 || montra.isJeZivy()){
+            System.out.println("Napiste 'utok' abyste zautocili.");
             String odpoved = scanner.next();
             if (odpoved.equalsIgnoreCase("utok")){
                 int uder = hrac.getUtok();
-                if (!mapa.getBatoh().getBatoh().isEmpty()) {
+                if (!mapa.getHrac().getBatoh().getBatoh().isEmpty()) {
                     System.out.println("A s cim chcete uderit?");
                     odpoved = scanner.next();
                     for (int i = 0; i < mapa.getBatoh().getBatoh().size(); i++) {
@@ -66,12 +67,16 @@ public class Boj implements Prikazy{
                 break;
             }
 //            if (hrac.isJeZivy(hrac)&&!montra.isJeZivy()){
+//                montra.isJeZivy();
 //                System.out.println("Zvitezili jste!");
 //                viteznik = "hrac";
-//                mapa.getMontras().get(mapa.getAktualniLokace().getID()).setJeZivy(false);
+//                break;
+//                //mapa.getMontras().get(mapa.getAktualniLokace().getID()).setJeZivy(false);
 //            }
 //            if (!hrac.isJeZivy(hrac)&&montra.isJeZivy()){
-//                //mapa.getHrac().setJeZivy(false);
+//                hrac.setJeZivy(false);
+//                mapa.getHrac().setJeZivy(false);
+//                break;
 //            }
             mapa.setHrac(hrac);
             mapa.updatovaniMonstra(montra);
@@ -82,7 +87,7 @@ public class Boj implements Prikazy{
             //hrac = mapa.getHrac();
             //montra = mapa.getMontras().get(mapa.getAktualniLokace().getID());
         }
-        return viteznik;
+        return "";
     }
 
     @Override

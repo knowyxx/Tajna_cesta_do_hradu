@@ -67,7 +67,7 @@ public class SvetovaMapa {
             }
             hrac = new Hrac(
                     100,
-                    150,
+                    15,
                     true,
                     batoh
             );
@@ -78,8 +78,6 @@ public class SvetovaMapa {
                     text.put(Integer.parseInt(split3[0]),split3[1]);
                 }
             }
-
-
             return true;
         } catch (FileNotFoundException e) {
             return false;
@@ -120,8 +118,8 @@ public class SvetovaMapa {
             if (text.containsKey(getAktualniLokace().getID())) {
                 System.out.println(text.get(getAktualniLokace().getID()));
             }
+            return "";
         }
-        return null;
     }
 
     public void updatovaniVeci(Veci veciVBatohu){
@@ -132,6 +130,9 @@ public class SvetovaMapa {
 
     public void updatovaniMonstra(Montra montraa){
         if (montras.containsValue(montraa)){
+            if (!montraa.isJeZivy()){
+                montras.remove(montraa.getID());
+            }
             montras.remove(aktualniLokace);
             montras.put(aktualniLokace,montraa);
         } else montras.remove(montraa.getID());

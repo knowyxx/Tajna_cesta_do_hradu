@@ -61,12 +61,13 @@ public class Batoh implements Prikazy{
                 mapa.updatovaniVeci(mapa.getHrac().getBatoh().getBatoh().get(i));
                 mapa.getHrac().getBatoh().getBatoh().remove(i);
                 System.out.println("Uspesne odstraneno!");
+                System.out.println(mapa.getVecy());
                 //mapa.getAktualniLokace().;//udelat metodu v svetovy mape na polozeni veci(updatovani mapy)
                 //return "Uspesne odstraneno!";
             }else System.out.println("Vec nemate v batohu.");
         }
         //return "Vec nemate v batohu.";
-        return null;
+        return "";
     }
 
     @Override
