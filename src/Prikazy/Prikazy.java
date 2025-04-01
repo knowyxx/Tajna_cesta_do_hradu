@@ -14,4 +14,6 @@ public interface Prikazy {
     void SetBatoh(Batoh batoh);
     void setNPC(NPC npc);
     void setHrac(Hrac hrac);
+    Hrac getHrac();
+    Montra getMontra();
 }

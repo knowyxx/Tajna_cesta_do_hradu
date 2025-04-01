@@ -7,7 +7,17 @@ public class Hrac {
     private int zivoty;
     private int utok;
     private boolean jeZivy = true;
-    private Batoh batoh = new Batoh();
+    private Batoh batoh;
+
+    public Hrac(int zivoty, int utok, boolean jeZivy, Batoh batoh) {
+        this.zivoty = zivoty;
+        this.utok = utok;
+        this.jeZivy = jeZivy;
+        this.batoh = batoh;
+    }
+
+    public Hrac() {
+    }
 
     public int protivnikUtok(int utok){
         return zivoty-utok;
@@ -34,6 +44,14 @@ public class Hrac {
             return false;
         }else return jeZivy;
 
+    }
+
+    public Batoh getBatoh() {
+        return batoh;
+    }
+
+    public void setBatoh(Batoh batoh) {
+        this.batoh = batoh;
     }
 
     public void setJeZivy(boolean jeZivy) {

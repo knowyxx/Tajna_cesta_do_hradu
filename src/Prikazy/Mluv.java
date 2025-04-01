@@ -17,13 +17,12 @@ public class Mluv implements Prikazy {
         System.out.println("S kym chcete mluvit?");
         String osoba = scanner.next();
 
-        if (npc.getNpc().containsKey(mapa.getAktualniLokace().getID())){
+        if (mapa.getNpcs().containsKey(mapa.getAktualniLokace().getID())){
             if (osoba.equalsIgnoreCase(npc.getJmeno())) {
                 return npc.getNpc().get(mapa.getAktualniLokace().getID()).getText();
             }
-            return "Osoba neni v mistnosti";
         }
-        return null;
+        return "Osoba neni v mistnosti";
     }
 
     @Override
@@ -54,6 +53,16 @@ public class Mluv implements Prikazy {
     @Override
     public void setHrac(Hrac hrac) {
 
+    }
+
+    @Override
+    public Hrac getHrac() {
+        return null;
+    }
+
+    @Override
+    public Montra getMontra() {
+        return null;
     }
 
     @Override

@@ -52,29 +52,29 @@ public class Montra {
         return zivoty-utok-vec;
     }
 
-    public boolean nacteniMonstru(){
-        try (BufferedReader br = new BufferedReader(new FileReader("monstra.csv"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] split = line.split(",");
-                Montra montra = new Montra(
-                        Integer.parseInt(split[0]),
-                        split[1],
-                        Integer.parseInt(split[2]),
-                        Integer.parseInt(split[3]),
-                        true,
-                        split[4]
-                );
-                monstra.put(Integer.parseInt(split[0]), montra);
-            }
-            return true;
-
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    public boolean nacteniMonstru(){
+//        try (BufferedReader br = new BufferedReader(new FileReader("monstra.csv"))) {
+//            String line;
+//            while ((line = br.readLine()) != null) {
+//                String[] split = line.split(",");
+//                Montra montra = new Montra(
+//                        Integer.parseInt(split[0]),
+//                        split[1],
+//                        Integer.parseInt(split[2]),
+//                        Integer.parseInt(split[3]),
+//                        true,
+//                        split[4]
+//                );
+//                monstra.put(Integer.parseInt(split[0]), montra);
+//            }
+//            return true;
+//
+//        } catch (FileNotFoundException e) {
+//            throw new RuntimeException(e);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     @Override
     public String toString() {

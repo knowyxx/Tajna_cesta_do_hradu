@@ -43,6 +43,16 @@ public class Konec implements Prikazy{
     }
 
     @Override
+    public Hrac getHrac() {
+        return null;
+    }
+
+    @Override
+    public Montra getMontra() {
+        return null;
+    }
+
+    @Override
     public void SetBatoh(Batoh batoh) {
 
     }

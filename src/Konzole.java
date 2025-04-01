@@ -36,8 +36,6 @@ public class Konzole {
         mapa.put("pomoc", new Pomoc());
         mapa.put("prozkoumej", new Prozkoumej());
         svetovaMapa.nacistMapu();
-        montra.nacteniMonstru();
-        npc.nacteniNPC();
     }
     public String udelejPrikaz(){
         System.out.println(">>");
@@ -48,10 +46,15 @@ public class Konzole {
             mapa.get(prikaz).setSvet(svetovaMapa);
             mapa.get(prikaz).setMonstra(montra);
             mapa.get(prikaz).setHrac(hrac);
-            System.out.println(">> "+mapa.get(prikaz).execute());
-            if(mapa.get(prikaz).equals("batoh")){
+            if(mapa.get(prikaz).toString().equals("batoh")){
                 svetovaMapa = mapa.get(prikaz).getSvet();
             }
+            if (mapa.get(prikaz).equals("boj")){
+                svetovaMapa.setHrac(mapa.get(prikaz).getHrac());
+                montra=mapa.get(prikaz).getMontra();
+            }
+            System.out.println(">> "+mapa.get(prikaz).execute());
+            exit= mapa.get(prikaz).exit();
             return prikaz;
         }else System.out.println("Prikaz neexistuje");
         return "spatny";
@@ -64,9 +67,6 @@ public class Konzole {
         //try {
             do {
                 udelejPrikaz();
-                if (!udelejPrikaz().equals("spatny")){
-                    exit = mapa.get(prikaz).exit();
-                }
             }while (!exit);
         //}catch (Exception e){
             //System.out.println(e.getMessage());

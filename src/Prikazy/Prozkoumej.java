@@ -12,33 +12,42 @@ public class Prozkoumej implements Prikazy {
 
     private Scanner scanner = new Scanner(System.in);
     private SvetovaMapa mapa;
-    private Montra montra;
-    private Batoh batoh;
-    private NPC npc;
+
 
     @Override
     public String execute() {
         System.out.println("Co chcete prozkoumat?");
         String rozhodnuti = scanner.next();
         if (rozhodnuti.equalsIgnoreCase("mistnost")) {
-            if (montra.monstraVMistnosti(mapa)){
-                return "Mistnost kde se nachazite " + mapa.getAktualniLokace().getJmeno() + "\n" +
-                        "Monstra u vas " + montra.monstraVMistnosti(mapa) + "\n" +
-                        "Veci v mistnosti " + mapa.getVecy().containsKey(mapa.getAktualniLokace().getID()) + "\n" +
-                        "NPC kolem vas " + npc.npcVMistnosti(mapa);
-            }else return "Mistnost kde se nachazite " + mapa.getAktualniLokace().getJmeno() + "\n" +
-                    "Veci v mistnosti " + mapa.getVecy().containsKey(mapa.getAktualniLokace().getID()) + "\n" +
-                    "NPC kolem vas " + npc.npcVMistnosti(mapa);
-
-        } else if (rozhodnuti.equalsIgnoreCase("vec")){
-            for (int i = 0; i < batoh.getBatoh().size(); i++) {
-                if (rozhodnuti.equalsIgnoreCase(batoh.getBatoh().get(i).getJmeno())) {
-                    return "Vec: "+batoh.getBatoh().get(i).getJmeno()+"\n"+
-                            "Sila: "+batoh.getBatoh().get(i).getSila()+"\n"+
-                            "Popis: "+batoh.getBatoh().get(i).getPopis();
-                }
+            System.out.println("Mistnost kde se nachazite: "+mapa.getAktualniLokace().getJmeno());
+            if (mapa.getVecy().containsKey(mapa.getAktualniLokace().getID())) {
+                System.out.println("Veci na zemi: "+mapa.getVecy().get(mapa.getAktualniLokace().getID()).getJmeno());
             }
+            if (mapa.getMontras().containsKey(mapa.getAktualniLokace().getID())){
+                System.out.println("Monstra v mistnosti: "+mapa.getMontras().get(mapa.getAktualniLokace().getID()).getJmeno());
+            }
+            if (mapa.getNpcs().containsKey(mapa.getAktualniLokace().getID())){
+                System.out.println("NPC v mistnosti: "+mapa.getNpcs().get(mapa.getAktualniLokace().getID()).getJmeno());
+            }
+
+        } else for (int i = 0; i < mapa.getBatoh().getBatoh().size(); i++) {
+            if (rozhodnuti.equalsIgnoreCase(mapa.getBatoh().getBatoh().get(i).getJmeno())) {
+                return "Vec: "+mapa.getBatoh().getBatoh().get(i).getJmeno()+"\n"+
+                        "Sila: "+ mapa.getBatoh().getBatoh().get(i).getSila()+"\n"+
+                        "Popis: "+mapa.getBatoh().getBatoh().get(i).getPopis();
+            }else return "vec nemate v batohu.";
         }
+//        else if (rozhodnuti.equalsIgnoreCase("vec")){
+//            for (int i = 0; i < mapa.getBatoh().getBatoh().size(); i++) {
+//                if (rozhodnuti.equalsIgnoreCase(mapa.getBatoh().getBatoh().get(i).getJmeno())) {
+//                    return "Vec: "+mapa.getBatoh().getBatoh().get(i).getJmeno()+"\n"+
+//                            "Sila: "+ mapa.getBatoh().getBatoh().get(i).getSila()+"\n"+
+//                            "Popis: "+mapa.getBatoh().getBatoh().get(i).getPopis();
+//                }
+//            }
+//            return rozhodnuti+" nemate v batohu.";
+//        }
+
 //        switch (rozhodnuti){
 //            case "mistnost": return "Mistnost kde se nachazite "+ aktualniLokace+"\n"+
 //                    "Veci v mistnosti "+veci.VeciNaZemi()+"\n"+
@@ -70,12 +79,10 @@ public class Prozkoumej implements Prikazy {
 
     @Override
     public void setMonstra(Montra montra) {
-        this.montra = montra;
     }
 
     @Override
     public void setNPC(NPC npc) {
-        this.npc = npc;
     }
 
     @Override
@@ -84,7 +91,16 @@ public class Prozkoumej implements Prikazy {
     }
 
     @Override
+    public Hrac getHrac() {
+        return null;
+    }
+
+    @Override
+    public Montra getMontra() {
+        return null;
+    }
+
+    @Override
     public void SetBatoh(Batoh batoh) {
-        this.batoh = batoh;
     }
 }

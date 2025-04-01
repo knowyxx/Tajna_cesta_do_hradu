@@ -39,26 +39,26 @@ public class NPC {
         return false;
     }
 
-    public String nacteniNPC(){
-        npc = new HashMap<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("textNPC.csv"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] split = line.split(",");
-                NPC npc1 = new NPC(
-                        Integer.parseInt(split[0]),
-                        split[1],
-                        split[2]
-                );
-                npc.put(npc1.getID(), npc1);
-            }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return null;
-    }
+//    public String nacteniNPC(){
+//        npc = new HashMap<>();
+//        try (BufferedReader br = new BufferedReader(new FileReader("textNPC.csv"))) {
+//            String line;
+//            while ((line = br.readLine()) != null) {
+//                String[] split = line.split(",");
+//                NPC npc1 = new NPC(
+//                        Integer.parseInt(split[0]),
+//                        split[1],
+//                        split[2]
+//                );
+//                npc.put(npc1.getID(), npc1);
+//            }
+//        } catch (FileNotFoundException e) {
+//            throw new RuntimeException(e);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//        return null;
+//    }
 
 
     public String getText() {
