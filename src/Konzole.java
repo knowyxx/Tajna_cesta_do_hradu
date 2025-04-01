@@ -62,7 +62,7 @@ public class Konzole {
 
     public void start(){
         inicializace();
-        String text = Text.nacistText();
+        String text = svetovaMapa.getText().get(svetovaMapa.getAktualniLokace().getID());
         System.out.println(text);
         //try {
             do {

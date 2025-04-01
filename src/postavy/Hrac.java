@@ -19,8 +19,9 @@ public class Hrac {
     public Hrac() {
     }
 
-    public int protivnikUtok(int utok){
-        return zivoty-utok;
+    public int protivnikUtok(Hrac hracc, int utok ){
+        setZivoty(hracc.getZivoty()-utok);
+        return hracc.getZivoty();
     }
 
     public int getZivoty() {
@@ -39,11 +40,14 @@ public class Hrac {
         this.utok = utok;
     }
 
-    public boolean isJeZivy() {
-        if (zivoty<=0){
+    public boolean isJeZivy(Hrac hracc) {
+        if (hracc.getZivoty()<=0){
+            jeZivy = false;
             return false;
-        }else return jeZivy;
-
+        }else {
+            jeZivy = true;
+            return true;
+        }
     }
 
     public Batoh getBatoh() {

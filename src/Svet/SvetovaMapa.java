@@ -67,7 +67,7 @@ public class SvetovaMapa {
             }
             hrac = new Hrac(
                     100,
-                    15,
+                    150,
                     true,
                     batoh
             );
@@ -128,10 +128,17 @@ public class SvetovaMapa {
         if (!vecy.containsValue(veciVBatohu)){
             vecy.put(aktualniLokace,veciVBatohu);
         } else vecy.remove(veciVBatohu.getID());
+    }
 
-
+    public void updatovaniMonstra(Montra montraa){
+        if (montras.containsValue(montraa)){
+            montras.remove(aktualniLokace);
+            montras.put(aktualniLokace,montraa);
+        } else montras.remove(montraa.getID());
 
     }
+
+
 
 //    public String polozeniVeci(Veci veci){
 //        if (batoh.getBatoh().contains(veci)){
@@ -209,5 +216,13 @@ public class SvetovaMapa {
 
     public void setAktualniLokace(int aktualniLokace) {
         this.aktualniLokace = aktualniLokace;
+    }
+
+    public HashMap<Integer, String> getText() {
+        return text;
+    }
+
+    public void setText(HashMap<Integer, String> text) {
+        this.text = text;
     }
 }

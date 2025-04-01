@@ -48,8 +48,9 @@ public class Montra {
         return false;
     }
 
-    public int protivnikUtok(int utok, int vec){
-        return zivoty-utok-vec;
+    public int protivnikUtok(Montra montraa,int utok, int vec){
+        setZivoty(montraa.getZivoty()-utok-vec);
+        return montraa.getZivoty();
     }
 
 //    public boolean nacteniMonstru(){
