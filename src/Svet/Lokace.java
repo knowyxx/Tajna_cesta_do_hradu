@@ -8,10 +8,21 @@ public class Lokace {
     private int ID;
     private int[] lokace;
 
+    /**
+     * Prazdny konstruktor k nacteni tridy.
+     */
     public Lokace() {
 
     }
 
+    /**
+     * Konstruktor k nacteni lokaci se vsema vlastnostmy.
+     * Taky prevadi pole string na int pole.
+     * Autor: Michaela Meitnerova
+     * @param jmeno
+     * @param ID
+     * @param lokace
+     */
     public Lokace(String jmeno, int ID, String[] lokace) {
         this.jmeno = jmeno;
         this.ID = ID;
@@ -19,10 +30,6 @@ public class Lokace {
         for (int i = 0; i < lokace.length; i++) {
             this.lokace[i] = Integer.parseInt((lokace[i]));
         }
-    }
-
-    private String toString(int i) {
-        return "";
     }
 
     @Override
@@ -34,6 +41,10 @@ public class Lokace {
                 '}';
     }
 
+    /**
+     * Settery a gettery.
+     * @return
+     */
     public String getJmeno() {
         return jmeno;
     }

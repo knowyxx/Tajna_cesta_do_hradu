@@ -15,6 +15,11 @@ public class Napoveda implements Prikazy{
 
     private Lokace aktualniLokace = new Lokace();
     private SvetovaMapa mapa;
+
+    /**
+     * Prikaz ktery vypise napovedu uzivatelovi podle mistnosti kde se nachazi.
+     * @return
+     */
     @Override
     public String execute() {
 
@@ -23,11 +28,10 @@ public class Napoveda implements Prikazy{
             String line;
             while ((line = br.readLine()) != null) {
                 String[] split = line.split(",");
-                if (aktualniLokace.getID()==Integer.parseInt(split[0])){
+                if (mapa.getAktualniLokace().getID()==Integer.parseInt(split[0])){
                     return split[1];
                 }
             }
-
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -35,6 +39,11 @@ public class Napoveda implements Prikazy{
         }
         return "Doslo k chybe";
     }
+
+    /**
+     * Dalsi interface metody.
+     * @return
+     */
 
     @Override
     public boolean exit() {

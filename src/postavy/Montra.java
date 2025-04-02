@@ -19,7 +19,15 @@ public class Montra {
     private HashMap<Integer, Montra> monstra;
 
 
-
+    /**
+     * Konstruktor k nacteni monstra se vsema vlastnostmy.
+     * @param ID
+     * @param jmeno
+     * @param zivoty
+     * @param utok
+     * @param jeZivy
+     * @param text
+     */
     public Montra(int ID, String jmeno, int zivoty, int utok, boolean jeZivy, String text) {
         this.ID = ID;
         this.jmeno = jmeno;
@@ -30,52 +38,24 @@ public class Montra {
         monstra = new HashMap();
     }
 
+    /**
+     * Prazdny konstruktor k nacteni tridy.
+     */
     public Montra() {
         monstra = new HashMap();
     }
 
-
-    public boolean monstraVMistnosti(SvetovaMapa mapa){
-        if (monstra.containsKey(mapa.getAktualniLokace().getID())) {
-            if (monstra.get(mapa.getAktualniLokace().getID()).isJeZivy()) {
-                System.out.println("Jmeno: " + monstra.get(mapa.getAktualniLokace().getID()).getJmeno() + "\n" +
-                        "HP: " + monstra.get(mapa.getAktualniLokace().getID()).getZivoty() + "\n" +
-                        "Je zivy");
-            }
-            System.out.println(monstra.get(mapa.getAktualniLokace().getID()).getJmeno() + ", mrtvi: " + monstra.get(mapa.getAktualniLokace().getID()).getText());
-            return true;
-        }
-        return false;
-    }
-
+    /**
+     * Metoda ktera vrati kolik monstrovi zustane zivotu po utoku.
+     * @param montraa
+     * @param utok
+     * @param vec
+     * @return
+     */
     public int protivnikUtok(Montra montraa,int utok, int vec){
         setZivoty(montraa.getZivoty()-utok-vec);
         return montraa.getZivoty();
     }
-
-//    public boolean nacteniMonstru(){
-//        try (BufferedReader br = new BufferedReader(new FileReader("monstra.csv"))) {
-//            String line;
-//            while ((line = br.readLine()) != null) {
-//                String[] split = line.split(",");
-//                Montra montra = new Montra(
-//                        Integer.parseInt(split[0]),
-//                        split[1],
-//                        Integer.parseInt(split[2]),
-//                        Integer.parseInt(split[3]),
-//                        true,
-//                        split[4]
-//                );
-//                monstra.put(Integer.parseInt(split[0]), montra);
-//            }
-//            return true;
-//
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 
     @Override
     public String toString() {
@@ -90,10 +70,10 @@ public class Montra {
                 '}';
     }
 
-    public String ulozeniMonstru(){
-        return null;
-    }
-
+    /**
+     * Settery a gettery.
+     * @return
+     */
     public int getID() {
         return ID;
     }
@@ -126,6 +106,10 @@ public class Montra {
         this.utok = utok;
     }
 
+    /**
+     * getter ktery pozna jestli monstrum je zivi dokud nema pod 1 zivotu.
+     * @return
+     */
     public boolean isJeZivy() {
         if (zivoty<=0){
             return false;

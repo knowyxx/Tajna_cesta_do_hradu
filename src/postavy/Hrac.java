@@ -6,24 +6,42 @@ public class Hrac {
 
     private int zivoty;
     private int utok;
-    private boolean jeZivy = true;
     private Batoh batoh;
 
-    public Hrac(int zivoty, int utok, boolean jeZivy, Batoh batoh) {
+    /**
+     * Konstruktor k nacteni hrace se vsema vlastnostmy.
+     * @param zivoty
+     * @param utok
+     * @param batoh
+     */
+    public Hrac(int zivoty, int utok, Batoh batoh) {
         this.zivoty = zivoty;
         this.utok = utok;
-        this.jeZivy = jeZivy;
         this.batoh = batoh;
     }
 
+    /**
+     * Prazdny konstruktor k nacteni tridy.
+     */
     public Hrac() {
     }
 
+    /**
+     * Metoda ktera vrati kolik hracovi zustane zivotu po utoku.
+     * @param hracc
+     * @param utok
+     * @return
+     */
     public int protivnikUtok(Hrac hracc, int utok ){
         setZivoty(hracc.getZivoty()-utok);
         return hracc.getZivoty();
     }
 
+
+    /**
+     * Settery a gettery.
+     * @return
+     */
     public int getZivoty() {
         return zivoty;
     }
@@ -40,16 +58,6 @@ public class Hrac {
         this.utok = utok;
     }
 
-    public boolean isJeZivy(Hrac hracc) {
-        if (hracc.getZivoty()<=0){
-            jeZivy = false;
-            return false;
-        }else {
-            jeZivy = true;
-            return true;
-        }
-    }
-
     public Batoh getBatoh() {
         return batoh;
     }
@@ -57,9 +65,4 @@ public class Hrac {
     public void setBatoh(Batoh batoh) {
         this.batoh = batoh;
     }
-
-    public void setJeZivy(boolean jeZivy) {
-        this.jeZivy = jeZivy;
-    }
-
 }

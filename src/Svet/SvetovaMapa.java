@@ -24,6 +24,10 @@ public class SvetovaMapa {
     private int start = 0;
     private int aktualniLokace = start;
 
+    /**
+     * Metoda ktera nacte lokaci, veci, monstra, NPC a text a da je do svych hashmap.
+     * @return
+     */
     public boolean nacistMapu(){
         try(BufferedReader br = new BufferedReader(new FileReader("mapa.csv"))) {
             String line;
@@ -68,7 +72,6 @@ public class SvetovaMapa {
             hrac = new Hrac(
                     100,
                     15,
-                    true,
                     batoh
             );
             try(BufferedReader br2 = new BufferedReader(new FileReader("text.csv"))) {
@@ -86,6 +89,12 @@ public class SvetovaMapa {
         }
     }
 
+    /**
+     * Metoda na pohyb, ktera i meni aktualni lokace podle toho kam se pohnul.
+     * Autor: Tobias Bires.
+     * @param direkce
+     * @return
+     */
     public String pohyb(String direkce){
         int cislo;
         String smer;
@@ -122,12 +131,20 @@ public class SvetovaMapa {
         }
     }
 
+    /**
+     * Metoda ktera smaze vec z hashmapy, pokud lezi na veci nebo da vec do hashmapy jestli nelezi v hashmape.
+     * @param veciVBatohu
+     */
     public void updatovaniVeci(Veci veciVBatohu){
         if (!vecy.containsValue(veciVBatohu)){
             vecy.put(aktualniLokace,veciVBatohu);
         } else vecy.remove(veciVBatohu.getID());
     }
 
+    /**
+     * Metoda ktera smaze monstra jestli je mrvi nebo updatne monstra.
+     * @param montraa
+     */
     public void updatovaniMonstra(Montra montraa){
         if (montras.containsValue(montraa)){
             if (!montraa.isJeZivy()){
@@ -136,20 +153,12 @@ public class SvetovaMapa {
             montras.remove(aktualniLokace);
             montras.put(aktualniLokace,montraa);
         } else montras.remove(montraa.getID());
-
     }
 
-
-
-//    public String polozeniVeci(Veci veci){
-//        if (batoh.getBatoh().contains(veci)){
-//
-//        }
-//        batoh.getBatoh()
-//        vecy.get(getAktualniLokace().getID()).setID();
-//
-//    }
-
+    /**
+     * Settery a gettery.
+     * @return
+     */
     @Override
     public String toString() {
         return "Vec: "+vecy;
@@ -226,4 +235,6 @@ public class SvetovaMapa {
     public void setText(HashMap<Integer, String> text) {
         this.text = text;
     }
+
+
 }

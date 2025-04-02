@@ -7,11 +7,19 @@ import postavy.NPC;
 
 public class Konec implements Prikazy{
 
+    /**
+     * Prikaz ktery ukonci hru.
+     * @return
+     */
     @Override
     public String execute() {
-        return "Okay";
+        return "Okay.";
     }
 
+    /**
+     * Dalsi interface metody.
+     * @return
+     */
     @Override
     public boolean exit() {
         return true;

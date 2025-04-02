@@ -16,8 +16,13 @@ public class NPC {
     private String jmeno;
     private String text;
     private HashMap<Integer,NPC> npc;
-    private Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Konstruktor k nacteni hrace se vsema vlastnostmy.
+     * @param ID
+     * @param jmeno
+     * @param text
+     */
     public NPC(int ID, String jmeno, String text) {
         this.ID = ID;
         this.jmeno = jmeno;
@@ -25,42 +30,17 @@ public class NPC {
         npc = new HashMap<>();
     }
 
+    /**
+     * Prazdny konstruktor k nacteni tridy.
+     */
     public NPC() {
         npc = new HashMap<>();
     }
 
-    public boolean npcVMistnosti(SvetovaMapa mapa){
-        //System.out.println(npc.get(mapa.getAktualniLokace().getID()));
-        System.out.println(npc);
-        if (npc.containsKey(mapa.getAktualniLokace().getID())){
-            //System.out.println( npc.get(mapa.getAktualniLokace().getID()).getJmeno()+" je v mistnosti");
-            return true;
-        }
-        return false;
-    }
-
-//    public String nacteniNPC(){
-//        npc = new HashMap<>();
-//        try (BufferedReader br = new BufferedReader(new FileReader("textNPC.csv"))) {
-//            String line;
-//            while ((line = br.readLine()) != null) {
-//                String[] split = line.split(",");
-//                NPC npc1 = new NPC(
-//                        Integer.parseInt(split[0]),
-//                        split[1],
-//                        split[2]
-//                );
-//                npc.put(npc1.getID(), npc1);
-//            }
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        return null;
-//    }
-
-
+    /**
+     * Settery a gettery.
+     * @return
+     */
     public String getText() {
         return text;
     }
@@ -92,4 +72,5 @@ public class NPC {
     public void setJmeno(String jmeno) {
         this.jmeno = jmeno;
     }
+
 }

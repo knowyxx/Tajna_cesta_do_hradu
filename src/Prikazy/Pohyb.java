@@ -13,13 +13,25 @@ public class Pohyb implements Prikazy {
     private Scanner scanner = new Scanner(System.in);
     private SvetovaMapa mapa;
 
+    /**
+     * Prikaz ktery uzivatele pohne do jine mistnosti, jestli nejsou(zabil) monstra v mistnosti.
+     * @return
+     */
     @Override
     public String execute() {
-        System.out.println("Kam chcete jit: sever, vychod, jih, zapad");
-        String smer = scanner.next();
-        return mapa.pohyb(smer.toLowerCase());
+        if (!mapa.getMontras().containsKey(mapa.getAktualniLokace().getID())){
+            System.out.println("Kam chcete jit: sever, vychod, jih, zapad");
+            String smer = scanner.next();
+            return mapa.pohyb(smer.toLowerCase());
+        } else {
+            return "Nesmite se pohnout, kdyz mate monstrum v mistnosti.";
+        }
     }
 
+    /**
+     * Dalsi interface metody.
+     * @return
+     */
     @Override
     public boolean exit() {
         return false;

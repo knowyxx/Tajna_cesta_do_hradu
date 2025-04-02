@@ -9,14 +9,19 @@ public class Veci {
     private String popis;
     private Veci vec;
 
+    /**
+     * Prazdny konstruktor k nacteni tridy.
+     */
     public Veci() {
     }
 
-    public Veci(int ID, Veci vec) {
-        this.ID = ID;
-        this.vec = vec;
-    }
-
+    /**
+     * Konstruktor k nacteni vec se vsema vlastnostmy.
+     * @param ID
+     * @param jmeno
+     * @param sila
+     * @param popis
+     */
     public Veci(int ID, String jmeno, int sila, String popis) {
         this.ID = ID;
         this.jmeno = jmeno;
@@ -24,17 +29,10 @@ public class Veci {
         this.popis = popis;
     }
 
-    public String VeciNaZemi(){
-        SvetovaMapa mapa = new SvetovaMapa();
-        for (int i = 0; i < 7; i++) {
-            if (mapa.getAktualniLokace().getID()==this.ID){
-                return this.jmeno;
-            }
-            ID++;
-        }
-        return "Nic neni na zemi";
-    }
-
+    /**
+     * Settery a gettery.
+     * @return
+     */
     public String getJmeno() {
         return jmeno;
     }
@@ -73,13 +71,5 @@ public class Veci {
 
     public void setVec(Veci vec) {
         this.vec = vec;
-    }
-
-    public String nacteniVeci(){
-        return null;
-    }
-
-    public String ukladaniVeci(){
-        return null;
     }
 }

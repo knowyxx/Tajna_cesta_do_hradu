@@ -6,6 +6,11 @@ import postavy.Montra;
 import postavy.NPC;
 
 public class Pomoc implements Prikazy {
+
+    /**
+     * Prikaz ktery vrati vsechny prikazy, ktery muze uzivatel pouzit.
+     * @return
+     */
     @Override
     public String execute() {
         return "Tady je list vsech prikazu dostupnych:" +"\n"+
@@ -19,6 +24,10 @@ public class Pomoc implements Prikazy {
                 "Prozkoumej";
     }
 
+    /**
+     * Dalsi interface metody.
+     * @return
+     */
     @Override
     public boolean exit() {
         return false;

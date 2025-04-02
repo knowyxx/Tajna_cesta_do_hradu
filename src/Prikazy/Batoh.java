@@ -15,22 +15,19 @@ public class Batoh implements Prikazy{
     private Scanner scanner = new Scanner(System.in);
     private SvetovaMapa mapa;
 
+    /**
+     * excecute ktery se zepta uzivatele co chce delat s batoh a potom co odpovedel tak se zepta co chce delat dal.
+     * @return
+     */
     @Override
     public String execute() {
         System.out.println("Copa chcete delat s batohem?");
-
-
         String odpoved = scanner.next();
         switch (odpoved.toLowerCase()) {
             case "vezmi":
                 System.out.println("Co chcete vzit?");
                 String vzitVec = scanner.next();
                 return vezmi(vzitVec);
-//                if (mapa.getVecy().containsKey(mapa.getAktualniLokace().getID())){
-//                    if (vzitVec.equalsIgnoreCase(mapa.getVecy().get(mapa.getAktualniLokace().getID()).getJmeno())){
-//                        return vezmi(mapa.getVecy().get(mapa.getAktualniLokace().getID()));
-//                    }
-//                }
             case "poloz":
                 System.out.println("Co chcete polozit?");
                 String polozVec = scanner.next();
@@ -39,12 +36,16 @@ public class Batoh implements Prikazy{
         }
     }
 
+    /**
+     * Metoda aby clovek vzal vec ze zeme a pridal do batohu.
+     * @param vec
+     * @return
+     */
     public String vezmi(String vec){
         if (mapa.getVecy().containsKey(mapa.getAktualniLokace().getID())) {
             if (vec.equalsIgnoreCase(mapa.getVecy().get(mapa.getAktualniLokace().getID()).getJmeno())) {
                 if (mapa.getHrac().getBatoh().getBatoh().size()<6) {
                     mapa.getHrac().getBatoh().getBatoh().add(mapa.getVecy().get(mapa.getAktualniLokace().getID()));
-                    //mapa.getVecy().remove(mapa.getAktualniLokace().getID());
                     mapa.updatovaniVeci(mapa.getVecy().get(mapa.getAktualniLokace().getID()));
                     System.out.println(vec+" bylo pridany do batohu");
                 }else {
@@ -55,6 +56,11 @@ public class Batoh implements Prikazy{
         return "";
     }
 
+    /**
+     * Metoda aby clovek polozil vec z batohu na zem.
+     * @param jmeno
+     * @return
+     */
     public String polozit(String jmeno){
         for (int i = 0; i < mapa.getHrac().getBatoh().getBatoh().size(); i++) {
             if (jmeno.equalsIgnoreCase(mapa.getHrac().getBatoh().getBatoh().get(i).getJmeno())){
@@ -62,19 +68,25 @@ public class Batoh implements Prikazy{
                 mapa.getHrac().getBatoh().getBatoh().remove(i);
                 System.out.println("Uspesne odstraneno!");
                 System.out.println(mapa.getVecy());
-                //mapa.getAktualniLokace().;//udelat metodu v svetovy mape na polozeni veci(updatovani mapy)
-                //return "Uspesne odstraneno!";
             }else System.out.println("Vec nemate v batohu.");
         }
-        //return "Vec nemate v batohu.";
         return "";
     }
+
+    /**
+     * dalsi interface metody
+     * @return
+     */
 
     @Override
     public boolean exit() {
         return false;
     }
 
+    /**
+     * Updatovani mapy.
+     * @param mapa
+     */
     @Override
     public void setSvet(SvetovaMapa mapa) {
         this.mapa = mapa;
@@ -89,6 +101,10 @@ public class Batoh implements Prikazy{
     public void setMonstra(Montra montra) {
     }
 
+    /**
+     * Nastaveni batohu.
+     * @param batoh
+     */
     @Override
     public void SetBatoh(Batoh batoh) {
         this.batoh = mapa.getHrac().getBatoh().getBatoh();

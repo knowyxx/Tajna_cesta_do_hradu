@@ -8,10 +8,8 @@ import Prikazy.Mluv;
 import Prikazy.Napoveda;
 import Prikazy.Prozkoumej;
 import Svet.SvetovaMapa;
-import Svet.Text;
 import postavy.Hrac;
 import postavy.Montra;
-import postavy.NPC;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -23,9 +21,15 @@ public class Konzole {
     private SvetovaMapa svetovaMapa = new SvetovaMapa();
     private Montra montra = new Montra();
     private Hrac hrac = new Hrac();
-    private NPC npc = new NPC();
+    /**
+     * Prikaz je zatim prazdny. Potom uzivatel zmeni 'prikaz' podle prikazu, ktery zada.
+     */
     private String prikaz="";
 
+    /**
+     * Metoda ktera nacte vsechny prikazy a da je do hashmapy
+     * Autor: Michaela Meitnerova
+     */
     public void inicializace(){
         mapa.put("batoh", new Batoh());
         mapa.put("boj", new Boj());
@@ -37,6 +41,12 @@ public class Konzole {
         mapa.put("prozkoumej", new Prozkoumej());
         svetovaMapa.nacistMapu();
     }
+
+    /**
+     * Metoda kde uzivatel zada prikaz a potom se spusti.
+     * Autor: Michaela Meitnerova
+     * @return
+     */
     public String udelejPrikaz(){
         System.out.println(">>");
         prikaz = scanner.nextLine();
@@ -60,17 +70,19 @@ public class Konzole {
         return "spatny";
     }
 
+    /**
+     * Metoda ktera zapne hru.
+     */
     public void start(){
         inicializace();
         String text = svetovaMapa.getText().get(svetovaMapa.getAktualniLokace().getID());
         System.out.println(text);
-        //try {
+        try {
             do {
                 udelejPrikaz();
             }while (!exit);
-        //}catch (Exception e){
+        }catch (Exception e){
             //System.out.println(e.getMessage());
-        //}
+        }
     }
-
 }
