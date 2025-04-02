@@ -1,6 +1,5 @@
 package Prikazy;
 
-import Svet.Lokace;
 import Svet.SvetovaMapa;
 import postavy.Hrac;
 import postavy.Montra;
@@ -8,8 +7,14 @@ import postavy.NPC;
 
 import java.util.Scanner;
 
+/**
+ * Trida pro pohyb.
+ */
 public class Pohyb implements Prikazy {
 
+    /**
+     * Vlastnosti tridy pro metody.
+     */
     private Scanner scanner = new Scanner(System.in);
     private SvetovaMapa mapa;
 

@@ -12,8 +12,14 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/**
+ * Trida pro mapu
+ */
 public class SvetovaMapa {
 
+    /**
+     * Vlastnosti mapy.
+     */
     private HashMap<Integer, Lokace> svet = new HashMap();
     private HashMap<Integer, Veci> vecy = new HashMap<>();
     private HashMap<Integer, Montra> montras = new HashMap<>();

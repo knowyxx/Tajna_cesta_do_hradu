@@ -2,8 +2,14 @@ package Svet;
 
 import java.util.Arrays;
 
+/**
+ * Trida pro lokaci.
+ */
 public class Lokace {
 
+    /**
+     * Vlastnosti lokace.
+     */
     private String jmeno;
     private int ID;
     private int[] lokace;

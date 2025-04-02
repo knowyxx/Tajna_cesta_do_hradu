@@ -9,8 +9,14 @@ import postavy.NPC;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Trida pro batoh.
+ */
 public class Batoh implements Prikazy{
 
+    /**
+     * Vlastnosti batohu a tridy pro metody.
+     */
     private ArrayList<Veci> batoh = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
     private SvetovaMapa mapa;

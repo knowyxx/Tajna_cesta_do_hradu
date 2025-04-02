@@ -5,6 +5,9 @@ import postavy.Hrac;
 import postavy.Montra;
 import postavy.NPC;
 
+/**
+ * Trida pro pomoc s prikazy.
+ */
 public class Pomoc implements Prikazy {
 
     /**

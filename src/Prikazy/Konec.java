@@ -5,6 +5,9 @@ import postavy.Hrac;
 import postavy.Montra;
 import postavy.NPC;
 
+/**
+ * Trida pro ukonceni hry.
+ */
 public class Konec implements Prikazy{
 
     /**

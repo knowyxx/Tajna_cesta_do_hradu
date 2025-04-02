@@ -1,6 +1,5 @@
 package Prikazy;
 
-import Svet.Lokace;
 import Svet.SvetovaMapa;
 import postavy.Hrac;
 import postavy.Montra;
@@ -11,9 +10,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Trida pro vypisu napovedy.
+ */
 public class Napoveda implements Prikazy{
 
-    private Lokace aktualniLokace = new Lokace();
+    /**
+     * Vlastnosti tridy pro metody
+     */
     private SvetovaMapa mapa;
 
     /**
@@ -22,8 +26,6 @@ public class Napoveda implements Prikazy{
      */
     @Override
     public String execute() {
-
-        aktualniLokace = mapa.getAktualniLokace();
         try (BufferedReader br = new BufferedReader(new FileReader("napovedaText.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {

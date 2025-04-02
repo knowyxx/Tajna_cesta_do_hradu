@@ -1,6 +1,5 @@
 package Prikazy;
 
-import Svet.Lokace;
 import Svet.SvetovaMapa;
 import postavy.Hrac;
 import postavy.Montra;
@@ -8,7 +7,13 @@ import postavy.NPC;
 
 import java.util.Scanner;
 
+/**
+ * Trida pro boj.
+ */
 public class Boj implements Prikazy{
+    /**
+     * Vlastnosti tridy pro metody.
+     */
     private SvetovaMapa mapa;
     private Montra montra;
     private Hrac hrac;

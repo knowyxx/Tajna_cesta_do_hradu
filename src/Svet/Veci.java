@@ -1,8 +1,13 @@
 package Svet;
 
-import java.util.HashMap;
-
+/**
+ * Trida pro veci
+ */
 public class Veci {
+
+    /**
+     * VLastnosti veci.
+     */
     private int ID;
     private String jmeno;
     private int sila;

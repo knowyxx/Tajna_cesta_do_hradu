@@ -1,15 +1,15 @@
 package postavy;
 
-import Svet.SvetovaMapa;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.HashMap;
 
+/**
+ * Trida pro monstra.
+ */
 public class Montra {
 
+    /**
+     * Vlastnosti monstra.
+     */
     private int ID;
     private String jmeno;
     private int zivoty;

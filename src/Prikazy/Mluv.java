@@ -7,14 +7,20 @@ import postavy.NPC;
 
 import java.util.Scanner;
 
+/**
+ * Trida pro interakce s NPC.
+ */
 public class Mluv implements Prikazy {
 
+    /**
+     * Vlastnosti tridy pro metody.
+     */
     private Scanner scanner = new Scanner(System.in);
     private SvetovaMapa mapa;
     private NPC npc;
 
     /**
-     *Prikaz ktery nacte text z NPC
+     *Prikaz ktery nacte text z NPC.
      * @return
      */
     @Override

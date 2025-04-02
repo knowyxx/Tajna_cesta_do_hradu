@@ -2,8 +2,14 @@ package postavy;
 
 import Prikazy.Batoh;
 
+/**
+ * Trida pro Hrace.
+ */
 public class Hrac {
 
+    /**
+     * Vlastnosti Hrace.
+     */
     private int zivoty;
     private int utok;
     private Batoh batoh;

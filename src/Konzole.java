@@ -14,7 +14,14 @@ import postavy.Montra;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * Trida pro nacteni hry a prikazu.
+ */
 public class Konzole {
+
+    /**
+     * Vlastnosti konzole.
+     */
     private boolean exit = false;
     private HashMap<String, Prikazy> mapa = new HashMap<>();
     private Scanner scanner = new Scanner(System.in);

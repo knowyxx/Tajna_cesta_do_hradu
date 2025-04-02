@@ -7,9 +7,14 @@ import postavy.NPC;
 
 import java.util.Scanner;
 
+/**
+ * Trida pro prozkoumani mistnosti ci veci.
+ */
 public class Prozkoumej implements Prikazy {
 
-
+    /**
+     * Vlastnosti tridy pro metody.
+     */
     private Scanner scanner = new Scanner(System.in);
     private SvetovaMapa mapa;
 
